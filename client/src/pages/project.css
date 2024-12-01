@@ -1,0 +1,120 @@
+.projects{
+    min-height: 100vh;
+    text-align: center;
+    padding: 10px;
+    /* box-shadow: 0 0 10px rgba(186, 255, 229, 0.363); */
+
+}
+.projects h1{
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    padding-top: 100px;
+}
+.prj-items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin: 20px;
+}
+.prj-item:not(.top-left){
+    max-width: 500px;
+    box-shadow: 0 0 10px rgba(79, 84, 82, 0.631);
+    background-color: whitesmoke;
+    padding: 10px;
+    border-radius: 15px;
+    transition: transform 0.6s;
+    position: relative;
+    overflow: hidden;
+}
+.prj-item:hover {
+    transform: scale(1.02); 
+    background: linear-gradient(to right, rgb(44, 209, 209), #a0f8fc);
+}
+.prj-item .top-left{
+    position: absolute;
+    left: -0px;
+    top: -2px;
+    background-color: rgb(55, 199, 199);
+    color: black;
+    border-radius: 10px;
+    padding-inline: 7px;
+    font-size: smaller;
+    overflow: visible;
+    z-index: 999;
+
+}
+.prj-item h3{
+    margin-top: 5px;
+    font-weight: 600;
+    border-radius: 10px;font-size: 24qpx;
+}
+
+.prj-items img{
+    width: 85%;
+    padding: 10px;
+    border:5px groove rgb(167, 214, 223);
+    max-height: 205px;
+}
+
+.prj-item .prj-description{
+    margin-top: 5px;
+}
+
+.prj-item .btns{
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+}
+
+.prj-item button {
+    outline: none;
+    border: 1px solid teal;
+    font-weight: 500;
+    background-color: transparent;
+    padding: 5px 15px;
+    color: black;
+    background-color: rgb(59, 170, 170);
+    border-radius: 10px;
+}
+.prj-item button:hover{
+    background:linear-gradient(to bottom, #6dd9e4 5%, #00e5ff 100%);
+	background-color:#00e5ff;
+}
+
+
+@media (max-width:500px) {
+    .prj-item h3{
+        font-size: 18px;
+    }
+    .prj-item p{
+        font-size: 14px;
+    }
+    .prj-item button{
+        font-size: 14px;
+    }
+    .prj-item img{
+        width: 100%;
+    padding: 10px;
+    }
+}
+
+
+.scrolling-text {
+    white-space: nowrap;
+    animation: scrollText 12s linear infinite; /* Adjust duration as needed */
+    color: teal;
+    font-family: cursive;
+  }
+
+  @keyframes scrollText {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }

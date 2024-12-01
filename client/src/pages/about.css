@@ -1,0 +1,67 @@
+.about{
+    min-height: 100vh;
+    padding: 10px;
+    text-align: center;
+    /* box-shadow: 0 0 10px rgba(186, 255, 229, 0.363); */
+}
+
+.about h1{
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    padding-top: 100px;
+}
+.about h1 svg{
+    padding: 0;margin: 0;
+}
+
+.about p{
+    letter-spacing:.5px ;
+    font-size: 17px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.about .resume-btn{
+    outline: none;
+    border: 1px solid teal;
+    font-weight: 500;
+    background-color: transparent;
+    padding: 7px 15px;
+    color: black;
+    background-color: rgb(59, 170, 170);
+    border-radius: 10px;
+    margin-block: 20px;
+}
+.about .resume-btn:hover{
+    background-color: rgba(67, 182, 205, 0.791);
+    scale: 1.02;
+    /* margin-left: 22px; */
+}
+
+.about div svg{
+    margin: 3px;
+}
+.about div:hover{
+    margin-left: 10px;
+}
+.about div{
+    font-size: 18px;
+    transition: .4s;
+}
+.about a{
+    text-decoration: none;
+    color: unset;
+}
+
+@media (max-width:500px) {
+    .about p{
+        font-size: 15px;
+    }
+    .about div{
+        font-size: unset;
+    }
+
+}
