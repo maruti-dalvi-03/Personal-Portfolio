@@ -1,24 +1,36 @@
+import express from "express";
+import mongoose from "mongoose";
+import bodyParser from "body-parser";
+import cors from "cors";
 import dotenv from "dotenv";
-import express from 'express';
-import authRouter from './routers/auth-router.js';
-import connectDb from './utils/db.js';
+import userRoutes from "./routers/userRouter.js";
+import aboutRoutes from './routers/aboutRoutes.js';
 
-//configure env
 dotenv.config();
 
-//rest objest
 const app = express();
 
-//middelware
-app.use(express.json());
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
 
-//Routers
-app.use("/api/auth", authRouter);
-app.use("/api/auth/registration", authRouter);
+// Routes
+// app.use("/", (req, res) => {
+//   res.send("sads");
+// });
 
-connectDb().then(() => {
-  const PORT = process.env.PORT || 7070;
-    app.listen(PORT, () => {
-        console.log(`App ruuning on port ${PORT}`);
-      });
-});
+app.use("/api/users", userRoutes);
+
+app.use("/api/about", aboutRoutes);
+
+// Database Connection
+mongoose
+  .connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((error) => console.error("Database connection error:", error));
+
+console.log("MongoDB URI:", process.env.MONGODB_URL);
+
+// Start Server
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

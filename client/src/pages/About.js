@@ -1,37 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./about.css";
-import {
-  MdPlace,
-  MdOutlineMailOutline,
-  MdArrowForwardIos,
-} from "react-icons/md";
+import { MdPlace, MdOutlineMailOutline, MdArrowForwardIos } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import Resume from "../assets/MarutisCV-1906.pdf";
+import axios from "axios"; // Add axios for API requests
 
 const About = () => {
+  const [aboutContent, setAboutContent] = useState("");
+
+  // Fetch the content from the server (on initial render)
+  useEffect(() => {
+    axios.get("http://localhost:5001/api/about")
+      .then(response => {
+        setAboutContent(response.data.content); // Assuming the API returns a field called 'content'
+      })
+      .catch(error => {
+        console.error("Error fetching About content:", error);
+      });
+  }, []);
+
   return (
     <div className="about" id="about">
       <h1 className="text-center mb-4">
         <FaUser /> About Me
       </h1>
-      <p className="p-2">
-        Hello! I'm a passionate and dedicated Software Developer with a solid
-        foundation in Computer Science and hands-on experience in building web
-        applications. I recently graduated with a Bachelor's in Computer Science
-        and am currently pursuing my Master's in Computer Applications (MCA). I
-        specialize in both front-end and back-end development, with expertise in
-        technologies like React, Node.js, Express, MongoDB, and more. My
-        portfolio includes projects such as a responsive e-commerce website with
-        an admin panel, a symptoms-based disease prediction app using Flask, and
-        a personal portfolio website (yes, the one you're viewing right now!). I
-        thrive on solving complex problems, writing clean code, and creating
-        intuitive user experiences. I believe in continuous learning and
-        actively seek opportunities to enhance my technical skills. When I'm not
-        coding, you'll find me exploring new technologies, contributing to
-        open-source projects, or brainstorming ideas for my next big project.
-        Feel free to explore my work and connect with me for collaboration or
-        opportunities. Let’s build something amazing together!
-      </p>
+      <div className="p-2" 
+           dangerouslySetInnerHTML={{ __html: aboutContent || "Loading content..." }} /> {/* Render HTML content */}
       <button className="resume-btn">
         <a href={Resume} download={"MarutiDalvi_CV.pdf"}>
           Resume

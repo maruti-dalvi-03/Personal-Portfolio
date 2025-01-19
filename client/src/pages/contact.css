@@ -54,11 +54,13 @@
 .contact-form textarea {
   padding: 10px;
   /* border: none; */
-  border-color: rgb(36, 172, 172);
+  border-color: rgb(17, 140, 177);
   outline: none;
   border-radius: 5px;
   width: 100%;
+
 }
+
 
 .contact-form button {
   padding: 10px;

@@ -38,7 +38,7 @@ const Projects = () => {
 
           <div className='prj-item'>
           {/* <span className='top-left'>Frontend</span> */}
-            <h3 className='scrolling-text'>Project Name</h3>
+            <h3 className='scrolling-text'>Multiple Diseases Prediction</h3>
             <img src="./img/prjImage3.png" alt="prj 3" />
             <p className='prj-description'>Platform for Predicting Muliple Diseases Based on Symptoms.</p>
             <p className='prj-technology'>Technology:- HTML, CSS, Python, Flask</p>

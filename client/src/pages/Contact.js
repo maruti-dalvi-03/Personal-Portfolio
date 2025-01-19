@@ -30,10 +30,10 @@ const Contact = () => {
       <div className="contact-right">
         <h2>Contact Us</h2>
         <form className="contact-form">
-          <input type="text" placeholder="Enter your Name" required  disabled/>
-          <input type="email" placeholder="Enter a valid email address" required  disabled/>
-          <textarea placeholder="Your Message" required disabled></textarea>
-          <button type="submit">SUBMIT</button>
+          <input type="text" placeholder="Enter your Name" required     />
+          <input type="email" placeholder="Enter a valid email address" required  />
+          <textarea placeholder="Your Message" required ></textarea>
+          <button type="submit" disabled style={{cursor:"not-allowed"}}>SUBMIT</button>
         </form>
       </div>
     </div>

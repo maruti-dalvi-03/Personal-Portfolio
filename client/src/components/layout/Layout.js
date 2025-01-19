@@ -8,6 +8,7 @@ import Education from '../../pages/Education';
 import Skills from '../../pages/Skills';
 import Projects from '../../pages/Projects';
 import Contact from '../../pages/Contact';
+import Footer from '../Footer';
 // import Something from '../../pages/Something';
 
 
@@ -27,6 +28,8 @@ const Layout = () => {
           {/* <Something/> */}
           <Contact/>
         </div>
+
+        <Footer/>
 
       </div>
     </>
