@@ -1,8 +1,9 @@
 {
   "name": "client",
-  "proxy": "http://localhost:5001",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://maruti-dalvi-03.github.io/Personal-Portfolio",
+  "proxy": "http://localhost:5001",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -18,9 +19,14 @@
     "typewriter-effect": "^2.21.0",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

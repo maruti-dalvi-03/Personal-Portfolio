@@ -1,104 +1,95 @@
-.homePage{
+.homePage {
     min-height: 100vh;
     width: 100%;
     color: rgb(0, 0, 0);
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items:center;
-    /* padding-top: 20%; */
+    align-items: center;
     flex-wrap: wrap;
     overflow-x: hidden;
-    /* box-shadow: 0 0 10px rgba(186, 255, 229, 0.363);      */
 }
-.content{
+
+.content {
     flex: 1;
     text-align: center;
 }
 
-
-#name{
+#name {
     color: rgb(14, 113, 80);
 }
 
-.homePage h4{
+.homePage h4 {
     margin: auto;
     max-width: 400px;
     box-shadow: 0px 0px 14px 0 rgba(202, 205, 195, 0.5);
     background: linear-gradient(to right, rgb(44, 209, 209), #a0f8fc);
-
     border-bottom-right-radius: 45px;
     border-top-left-radius: 45px;
-    
-}
-.iam{
-    color:black;
-    font-size: 18px; font-weight: 700;
 }
 
-.type-writter{
+.iam {
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.type-writter {
     font-size: 35px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-.homePage button{
+
+.homePage button {
     outline: none;
     border: 1px solid teal;
     font-weight: 500;
-    background-color: transparent;
+    background-color: rgb(59, 170, 170);
     padding: 5px 15px;
     color: black;
-    background-color: rgb(59, 170, 170);
     border-radius: 10px;
 }
-.homePage button:hover{
+
+.homePage button:hover {
     background-color: rgba(67, 182, 205, 0.791);
     scale: 1.02;
-
 }
-.social-media-icons{
+
+.social-media-icons {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
-    margin: 5px;
-    
+    margin: 10px 0;
+    flex-wrap: wrap;
 }
-.social-media-icons-mobile{
-    display: flex;
-    display: none;
-}
-.social-media-icons svg , .social-media-icons-mobile svg{
+
+.social-media-icons a svg {
     font-size: 50px;
     padding: 8px;
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    transition: all 0.3s;
 }
-.social-media-icons svg:hover , .social-media-icons-mobile svg:hover{
+
+.social-media-icons a svg:hover {
     opacity: 0.7;
     scale: 1.05;
 }
-.social-media-icons span:nth-child(1) svg, .social-media-icons-mobile span:nth-child(1) svg{
-    color: green;
-}
-.social-media-icons span:nth-child(2) svg, .social-media-icons-mobile span:nth-child(2) svg{
-    color:hotpink;
-}
-.social-media-icons span:nth-child(3) svg, .social-media-icons-mobile span:nth-child(3) svg{
-    color:cornflowerblue;
-}
-.social-media-icons span:nth-child(4) svg, .social-media-icons-mobile span:nth-child(4) svg{
-    color:coral;
-}
-.social-media-icons span:nth-child(5) svg, .social-media-icons-mobile span:nth-child(5) svg{
-    color:deepskyblue;
-}
 
-.homePage .avtar{
+/* Assign colors (GitHub, Instagram, LinkedIn, Mail, Telegram) */
+.social-media-icons a:nth-child(1) svg { color: green; }
+.social-media-icons a:nth-child(2) svg { color: hotpink; }
+.social-media-icons a:nth-child(3) svg { color: cornflowerblue; }
+.social-media-icons a:nth-child(4) svg { color: coral; }
+.social-media-icons a:nth-child(5) svg { color: deepskyblue; }
+
+.homePage .avtar {
     flex: 1;
     text-align: center;
 }
-.homePage img{
+
+.homePage img {
     width: 380px;
     height: 440px;
     margin-top: -50px;
@@ -106,21 +97,24 @@
     filter: drop-shadow(0px 0px 6px rgba(242, 246, 8, 0.6));
     transition: all 0.4s;
 }
-.homePage img:hover{
+
+.homePage img:hover {
     scale: 1.04;
 }
 
-@media (max-width:700px) {
-    .homePage{
+@media (max-width: 700px) {
+    .homePage {
         flex-direction: column;
-        justify-content:flex-start;
+        justify-content: flex-start;
         align-items: center;
         padding-top: 24px;
     }
-    .homePage .avtar{
+
+    .homePage .avtar {
         margin-top: -25px;
     }
-    .homePage h4{
+
+    .homePage h4 {
         width: 320px;
         border-bottom-right-radius: 32px;
         border-top-left-radius: 32px;
@@ -128,27 +122,20 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        
     }
-    .type-writter{
+
+    .type-writter {
         font-size: 26px;
     }
-    .homePage button{
+
+    .homePage button {
         margin: 0 !important;
     }
-    .homePage img{
+
+    .homePage img {
         width: 300px;
-        margin-top: 0px;
         height: 330px;
+        margin-top: 0;
         margin-bottom: 0;
-    }
-    .social-media-icons{
-        display: none;
-    }
-    .social-media-icons-mobile{
-        display: block;
-        display: flex;
-        gap: 15px;
-        margin-top: 10px;
     }
 }

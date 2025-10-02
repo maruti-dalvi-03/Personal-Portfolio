@@ -52,7 +52,7 @@ const Contact = () => {
             </div>
             <div className="info-item">
               <h3>PHONE NUMBER</h3>
-              <p>8689804003<br />9819238163</p>
+              <p>86xxxxxxx3<br />98xxxxxx63</p>
             </div>
             <div className="info-item">
               <h3>INSTAGRAM</h3>

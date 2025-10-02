@@ -27,7 +27,7 @@ const About = () => {
       <div className="p-2" 
            dangerouslySetInnerHTML={{ __html: aboutContent || "Loading content..." }} /> {/* Render HTML content */}
       <button className="resume-btn">
-        <a href={Resume} download={"MarutiDalvi_CV.pdf"}>
+        <a href={Resume} download={"CV-GeneralMD.pdf.pdf"}>
           Resume
         </a>
         <MdArrowForwardIos />
