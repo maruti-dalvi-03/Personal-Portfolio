@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./menu.css";
 import { Link } from "react-scroll";
 import AdminLogin from "../../Admin/AdminLogin";
@@ -6,20 +6,35 @@ import AdminLogin from "../../Admin/AdminLogin";
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Function to toggle the menu state
+  // Check localStorage for login status on mount
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+    setIsAuthenticated(!!token);
+  }, []);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  // Function to close the menu
   const closeMenu = () => {
     setIsOpen(false);
   };
 
-  // Function to toggle the login popup
   const toggleLoginPopup = () => {
     setShowLogin(!showLogin);
+  };
+
+  const handleLoginSuccess = (token) => {
+    localStorage.setItem("authToken", token); // Store token in localStorage
+    setIsAuthenticated(true);
+    toggleLoginPopup();  // Close the login popup after successful login
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("authToken"); // Remove token from localStorage
+    setIsAuthenticated(false);
   };
 
   return (
@@ -37,18 +52,29 @@ const Menu = () => {
           <li><Link to="skills" spy={true} onClick={closeMenu}>Skills</Link></li>
           <li><Link to="projects" spy={true} onClick={closeMenu}>Projects</Link></li>
           <li><Link to="contact" spy={true} onClick={closeMenu}>Contact</Link></li>
-          <li>
-            <a href="#login" onClick={(e) => {
-              e.preventDefault();
-              toggleLoginPopup();
-            }}>
-              Login
-            </a>
-          </li>
+          {isAuthenticated ? (
+            <li>
+              <a href="#logout" onClick={(e) => {
+                e.preventDefault();
+                handleLogout();
+              }}>
+                Sign Out
+              </a>
+            </li>
+          ) : (
+            <li>
+              <a href="#login" onClick={(e) => {
+                e.preventDefault();
+                toggleLoginPopup();
+              }}>
+                Login
+              </a>
+            </li>
+          )}
         </ul>
       </nav>
 
-      {showLogin && <AdminLogin closePopup={toggleLoginPopup} />}
+      {showLogin && <AdminLogin closePopup={toggleLoginPopup} onLoginSuccess={handleLoginSuccess} />}
     </>
   );
 };

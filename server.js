@@ -5,6 +5,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import userRoutes from "./routers/userRouter.js";
 import aboutRoutes from './routers/aboutRoutes.js';
+import contactRoutes from './routers/contactRoutes.js';
+import skillRoutes from './routers/skillRoutes.js';
 
 dotenv.config();
 
@@ -22,6 +24,10 @@ app.use(bodyParser.json());
 app.use("/api/users", userRoutes);
 
 app.use("/api/about", aboutRoutes);
+
+app.use('/api', contactRoutes);
+
+app.use("/api/skills", skillRoutes);
 
 // Database Connection
 mongoose

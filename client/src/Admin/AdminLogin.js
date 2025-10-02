@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./adminLogin.css"; // Optional for styling
+import "./adminLogin.css";
 
-function AdminLogin({ closePopup }) {
+function AdminLogin({ closePopup, onLoginSuccess }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -22,14 +22,14 @@ function AdminLogin({ closePopup }) {
 
       if (response.ok) {
         setMessage("Login successful!");
-        console.log(data); // Handle token or user data here
-        closePopup(); // Close popup on success
+        onLoginSuccess(data.token); // Pass token to parent component
+        closePopup();
       } else {
         setMessage(data.message || "Invalid login credentials.");
       }
     } catch (error) {
       setMessage("An error occurred. Please try again.");
-      console.error(error);
+      console.error("Login error:", error);
     }
   };
 

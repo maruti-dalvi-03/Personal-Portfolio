@@ -44,3 +44,91 @@
     background-color: #ecf0f1;
   }
   
+
+  /* Skillss          Skillsssss        Skills */
+
+  .skill-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .skill-form input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .skill-form button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .skill-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .skill-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: #f9f9f9;
+  }
+  
+  .skill-table th,
+  .skill-table td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 0.75rem;
+  }
+  
+  .skill-table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .skill-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .skill-table img {
+    max-width: 50px;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .delete-btn {
+    padding: 0.5rem;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c82333;
+  }
+  
+  @media (max-width: 768px) {
+    .skill-form {
+      flex-direction: column;
+    }
+  
+    .skill-table {
+      font-size: 0.9rem;
+    }
+  
+    .skill-table th,
+    .skill-table td {
+      padding: 0.5rem;
+    }
+  }
+  
