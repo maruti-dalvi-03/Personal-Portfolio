@@ -1,35 +1,29 @@
-import nodemailer from 'nodemailer';
+const express = require('express');
+const router = express.Router();
+const transporter = require('./contactModel');
 
-// Email configuration using Gmail 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'marutidalvi0001@gmail.com',
-    pass: 'kckiqfvjsbtvnags',
-  },
-});
+router.post('/api/contact', async (req, res) => {
+  const { name, email, message } = req.body;
 
-// Model: Send email
-const sendContactEmail = async (name, email, message) => {
+  if (!name || !email || !message) {
+    return res.status(400).json({ message: "All fields are required." });
+  }
+
   const mailOptions = {
-    from: email,
-    to: 'marutidalvi0001@gmail.com',  
-    subject: `New Message from ${name}`,
-    text: `
-      Name: ${name}
-      Email: ${email}
-      Message: ${message}
-    `,
+    from: process.env.EMAIL_USER,
+    to: process.env.EMAIL_USER, // send to yourself
+    subject: `Contact Form: ${name}`,
+    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
   };
 
   try {
     const info = await transporter.sendMail(mailOptions);
-    console.log('Email sent:', info.response);
-    return { success: true, message: 'Message sent successfully!' };
+    console.log("Email sent:", info.response);
+    res.status(200).json({ message: "Email sent successfully!" });
   } catch (error) {
-    console.error('Error sending email:', error);
-    return { success: false, message: 'Error sending email.' };
+    console.error("Error sending email:", error);  // logs the exact error
+    res.status(500).json({ message: "Error sending email." });
   }
-};
+});
 
-export default sendContactEmail ;
+module.exports = router;
