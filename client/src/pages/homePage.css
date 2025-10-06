@@ -77,7 +77,7 @@
     scale: 1.05;
 }
 
-/* Assign colors (GitHub, Instagram, LinkedIn, Mail, Telegram) */
+/* Assign colors  */
 .social-media-icons a:nth-child(1) svg { color: green; }
 .social-media-icons a:nth-child(2) svg { color: hotpink; }
 .social-media-icons a:nth-child(3) svg { color: cornflowerblue; }

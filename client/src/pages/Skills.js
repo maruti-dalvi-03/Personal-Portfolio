@@ -9,7 +9,7 @@ const Skills = () => {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const response = await axios.get("http://localhost:5001/api/skills");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL || ""}/api/skills`);
         setSkills(response.data);
       } catch (error) {
         console.error("Error fetching skills:", error);

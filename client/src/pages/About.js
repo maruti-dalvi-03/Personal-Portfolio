@@ -1,20 +1,26 @@
 import React, { useState, useEffect } from "react";
 import "./about.css";
-import { MdPlace, MdOutlineMailOutline, MdArrowForwardIos } from "react-icons/md";
+import {
+  MdPlace,
+  MdOutlineMailOutline,
+  MdArrowForwardIos,
+} from "react-icons/md";
 import { FaUser } from "react-icons/fa";
-import Resume from "../assets/MarutisCV-1906.pdf";
-import axios from "axios"; // Add axios for API requests
+import Resume from "../assets/CV-GeneralMD.pdf";
+import axios from "axios"; 
 
 const About = () => {
   const [aboutContent, setAboutContent] = useState("");
 
-  // Fetch the content from the server (on initial render)
+  // Fetch the content from the server 
   useEffect(() => {
-    axios.get("http://localhost:5001/api/about")
-      .then(response => {
-        setAboutContent(response.data.content); // Assuming the API returns a field called 'content'
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/api/about`)
+
+      .then((response) => {
+        setAboutContent(response.data.content);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Error fetching About content:", error);
       });
   }, []);
@@ -24,8 +30,13 @@ const About = () => {
       <h1 className="text-center mb-4">
         <FaUser /> About Me
       </h1>
-      <div className="p-2" 
-           dangerouslySetInnerHTML={{ __html: aboutContent || "Loading content..." }} /> {/* Render HTML content */}
+      <div
+        className="p-2"
+        dangerouslySetInnerHTML={{
+          __html: aboutContent || "Loading content...",
+        }}
+      />{" "}
+      {/* Render HTML content */}
       <button className="resume-btn">
         <a href={Resume} download={"CV-GeneralMD.pdf.pdf"}>
           Resume

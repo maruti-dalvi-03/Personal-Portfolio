@@ -26,7 +26,7 @@ const Contact = () => {
     setResponseMessage("");
 
     try {
-      const response = await axios.post("http://localhost:5001/api/contact", formData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/contact`, formData);
       setResponseMessage(response.data.message || "Form submitted successfully!");
       setFormData({ name: "", email: "", message: "" }); // Reset form fields
     } catch (error) {

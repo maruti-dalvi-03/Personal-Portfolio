@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-// Email configuration using Gmail (can be modified to use other services)
+// Email configuration using Gmail 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 const sendContactEmail = async (name, email, message) => {
   const mailOptions = {
     from: email,
-    to: 'marutidalvi0001@gmail.com',  // Destination email
+    to: 'marutidalvi0001@gmail.com',  
     subject: `New Message from ${name}`,
     text: `
       Name: ${name}
