@@ -35,6 +35,8 @@ const Footer = () => {
         {token ? (
           <a
             href="/dashboard"
+            target="_blank"       
+            rel="noopener noreferrer"
             style={{
               color: "white",
               textDecoration: "none",
