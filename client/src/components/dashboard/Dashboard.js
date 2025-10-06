@@ -10,6 +10,8 @@ const Dashboard = () => {
   const [skills, setSkills] = useState([]);
   const [newSkill, setNewSkill] = useState({ name: "", image: "" });
 
+  const API_URL = process.env.REACT_APP_API_URL;
+  
   useEffect(() => {
     if (activeSection === "about") {
       fetchAboutContent();
@@ -19,57 +21,57 @@ const Dashboard = () => {
   }, [activeSection]);
 
   // Fetch About content
-  const fetchAboutContent = async () => {
-    try {
-      const response = await axios.get("http://localhost:5001/api/about");
-      setAboutContent(response.data.content || "");
-    } catch (error) {
-      console.error("Error fetching About content:", error);
-    }
-  };
+const fetchAboutContent = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/api/about`);
+    setAboutContent(response.data.content || "");
+  } catch (error) {
+    console.error("Error fetching About content:", error);
+  }
+};
 
-  // Save About content
-  const handleSaveAbout = () => {
-    axios
-      .post("http://localhost:5001/api/about", { content: aboutContent })
-      .then(() => {
-        alert("About content updated!");
-      })
-      .catch((error) => {
-        console.error("Error updating About content:", error);
-      });
-  };
+// Save About content
+const handleSaveAbout = () => {
+  axios
+    .post(`${API_URL}/api/about`, { content: aboutContent })
+    .then(() => {
+      alert("About content updated!");
+    })
+    .catch((error) => {
+      console.error("Error updating About content:", error);
+    });
+};
 
-  // Fetch Skills
-  const fetchSkills = async () => {
-    try {
-      const response = await axios.get("http://localhost:5001/api/skills");
-      setSkills(response.data);
-    } catch (error) {
-      console.error("Error fetching skills:", error);
-    }
-  };
+// Fetch Skills
+const fetchSkills = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/api/skills`);
+    setSkills(response.data);
+  } catch (error) {
+    console.error("Error fetching skills:", error);
+  }
+};
 
-  // Add a new skill
-  const handleAddSkill = async () => {
-    try {
-      await axios.post("http://localhost:5001/api/skills", newSkill);
-      fetchSkills();
-      setNewSkill({ name: "", image: "" });
-    } catch (error) {
-      console.error("Error adding skill:", error);
-    }
-  };
+// Add a new skill
+const handleAddSkill = async () => {
+  try {
+    await axios.post(`${API_URL}/api/skills`, newSkill);
+    fetchSkills();
+    setNewSkill({ name: "", image: "" });
+  } catch (error) {
+    console.error("Error adding skill:", error);
+  }
+};
 
-  // Delete a skill
-  const handleDeleteSkill = async (id) => {
-    try {
-      await axios.delete(`http://localhost:5001/api/skills/${id}`);
-      fetchSkills();
-    } catch (error) {
-      console.error("Error deleting skill:", error);
-    }
-  };
+// Delete a skill
+const handleDeleteSkill = async (id) => {
+  try {
+    await axios.delete(`${API_URL}/api/skills/${id}`);
+    fetchSkills();
+  } catch (error) {
+    console.error("Error deleting skill:", error);
+  }
+};
 
   const renderContent = () => {
     switch (activeSection) {
