@@ -35,7 +35,7 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch((error) => console.error("Database connection error:", error));
 
-console.log("MongoDB URI:", process.env.MONGODB_URL);
+//ffh
 
 // Start Server
 const PORT = process.env.PORT || 5001;
