@@ -1,11 +1,10 @@
-// This is the configuration used in contactModel.js to send emails.
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'marutidalvi0001@gmail.com',
-    pass: 'kckiqfvjsbtvnags',
+    user: process.env.EMAIL_USER,  /
+    pass: process.env.EMAIL_PASS,  
   },
 });
 
